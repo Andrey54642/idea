@@ -1,0 +1,472 @@
+/**
+ * Frontend CSS — Вина Кубани
+ *
+ * @package Vina_Kubani
+ */
+
+/* ========== Variables ========== */
+:root {
+	--vk-primary: #8B0000;
+	--vk-primary-dark: #6B0000;
+	--vk-secondary: #333;
+	--vk-bg: #f5f5f5;
+	--vk-white: #fff;
+	--vk-border: #ddd;
+	--vk-text: #333;
+	--vk-text-light: #666;
+	--vk-radius: 8px;
+	--vk-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	--vk-transition: 0.3s ease;
+}
+
+/* ========== Base ========== */
+.vk-btn,
+.vk-btn--small {
+	display: inline-block;
+	padding: 8px 16px;
+	background: var(--vk-primary);
+	color: var(--vk-white);
+	text-decoration: none;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 14px;
+	transition: background var(--vk-transition);
+}
+
+.vk-btn:hover,
+.vk-btn--small:hover {
+	background: var(--vk-primary-dark);
+	color: var(--vk-white);
+}
+
+.vk-btn--small {
+	padding: 5px 12px;
+	font-size: 12px;
+}
+
+.vk-no-results {
+	text-align: center;
+	color: var(--vk-text-light);
+	padding: 40px 20px;
+}
+
+/* ========== Wine Search ========== */
+.vk-wine-search {
+	max-width: 600px;
+	margin: 0 auto 30px;
+}
+
+.vk-wine-search__form {
+	display: flex;
+	gap: 8px;
+}
+
+.vk-wine-search__input {
+	flex: 1;
+	padding: 10px 14px;
+	border: 1px solid var(--vk-border);
+	border-radius: 4px;
+	font-size: 16px;
+	outline: none;
+	transition: border-color var(--vk-transition);
+}
+
+.vk-wine-search__input:focus {
+	border-color: var(--vk-primary);
+}
+
+.vk-wine-search__button {
+	padding: 10px 20px;
+	background: var(--vk-primary);
+	color: var(--vk-white);
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 14px;
+	transition: background var(--vk-transition);
+}
+
+.vk-wine-search__button:hover {
+	background: var(--vk-primary-dark);
+}
+
+.vk-wine-search__results {
+	margin-top: 20px;
+}
+
+.vk-wine-search__status {
+	margin-top: 10px;
+	text-align: center;
+	color: var(--vk-text-light);
+	font-size: 14px;
+}
+
+/* ========== Wines Grid ========== */
+.vk-wines-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+	gap: 24px;
+}
+
+.vk-wine-card {
+	background: var(--vk-white);
+	border-radius: var(--vk-radius);
+	box-shadow: var(--vk-shadow);
+	overflow: hidden;
+	transition: transform var(--vk-transition), box-shadow var(--vk-transition);
+}
+
+.vk-wine-card:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.vk-wine-card__image {
+	overflow: hidden;
+}
+
+.vk-wine-card__image img {
+	width: 100%;
+	height: 200px;
+	object-fit: cover;
+	transition: transform var(--vk-transition);
+}
+
+.vk-wine-card:hover .vk-wine-card__image img {
+	transform: scale(1.05);
+}
+
+.vk-wine-card__content {
+	padding: 16px;
+}
+
+.vk-wine-card__title {
+	margin: 0 0 8px;
+	font-size: 18px;
+}
+
+.vk-wine-card__title a {
+	color: var(--vk-text);
+	text-decoration: none;
+}
+
+.vk-wine-card__title a:hover {
+	color: var(--vk-primary);
+}
+
+.vk-wine-card__code {
+	background: #f0f0f1;
+	padding: 6px 10px;
+	border-radius: 4px;
+	margin-bottom: 10px;
+}
+
+.vk-wine-card__code code {
+	font-size: 12px;
+	color: var(--vk-text-light);
+	word-break: break-all;
+}
+
+.vk-wine-card__meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin-bottom: 10px;
+	font-size: 13px;
+}
+
+.vk-wine-card__year,
+.vk-wine-card__terroir,
+.vk-wine-card__winemaker {
+	background: var(--vk-bg);
+	padding: 3px 8px;
+	border-radius: 3px;
+	color: var(--vk-text-light);
+}
+
+.vk-wine-card__excerpt {
+	color: var(--vk-text-light);
+	font-size: 14px;
+	margin: 0 0 12px;
+	line-height: 1.5;
+}
+
+/* ========== Wine Single ========== */
+.vk-wine-single {
+	max-width: 900px;
+	margin: 0 auto;
+	background: var(--vk-white);
+	border-radius: var(--vk-radius);
+	box-shadow: var(--vk-shadow);
+	overflow: hidden;
+}
+
+.vk-wine-single__image img {
+	width: 100%;
+	max-height: 500px;
+	object-fit: cover;
+}
+
+.vk-wine-single__content {
+	padding: 30px;
+}
+
+.vk-wine-single__title {
+	margin: 0 0 15px;
+	font-size: 28px;
+}
+
+.vk-wine-single__code {
+	background: #f0f0f1;
+	padding: 10px 14px;
+	border-radius: 4px;
+	margin-bottom: 20px;
+	display: inline-block;
+}
+
+.vk-wine-single__code code {
+	font-size: 14px;
+}
+
+.vk-wine-single__meta-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 15px;
+	margin-bottom: 25px;
+}
+
+.vk-wine-single__meta-item {
+	padding: 10px;
+	background: var(--vk-bg);
+	border-radius: 4px;
+}
+
+.vk-wine-single__meta-item strong {
+	display: block;
+	font-size: 12px;
+	color: var(--vk-text-light);
+	text-transform: uppercase;
+	margin-bottom: 4px;
+}
+
+.vk-wine-single__description {
+	line-height: 1.7;
+}
+
+/* ========== Terroirs Grid ========== */
+.vk-terroirs-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+	gap: 24px;
+}
+
+.vk-terroir-card {
+	background: var(--vk-white);
+	border-radius: var(--vk-radius);
+	box-shadow: var(--vk-shadow);
+	overflow: hidden;
+	transition: transform var(--vk-transition);
+}
+
+.vk-terroir-card:hover {
+	transform: translateY(-3px);
+}
+
+.vk-terroir-card__image img {
+	width: 100%;
+	height: 180px;
+	object-fit: cover;
+}
+
+.vk-terroir-card__content {
+	padding: 16px;
+}
+
+.vk-terroir-card__title {
+	margin: 0 0 8px;
+}
+
+.vk-terroir-card__title a {
+	color: var(--vk-text);
+	text-decoration: none;
+}
+
+.vk-terroir-card__title a:hover {
+	color: var(--vk-primary);
+}
+
+.vk-terroir-card__region {
+	font-size: 13px;
+	color: var(--vk-text-light);
+	margin: 0 0 8px;
+}
+
+.vk-terroir-card__excerpt {
+	font-size: 14px;
+	color: var(--vk-text-light);
+	margin: 0 0 12px;
+}
+
+/* ========== Terroir Single ========== */
+.vk-terroir-single {
+	max-width: 900px;
+	margin: 0 auto;
+	background: var(--vk-white);
+	border-radius: var(--vk-radius);
+	box-shadow: var(--vk-shadow);
+	overflow: hidden;
+}
+
+.vk-terroir-single__image img {
+	width: 100%;
+	max-height: 400px;
+	object-fit: cover;
+}
+
+.vk-terroir-single__content {
+	padding: 30px;
+}
+
+.vk-terroir-region {
+	margin-top: 15px;
+	padding: 10px;
+	background: var(--vk-bg);
+	border-radius: 4px;
+}
+
+/* ========== Winemakers Grid ========== */
+.vk-winemakers-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	gap: 24px;
+}
+
+.vk-winemaker-card {
+	background: var(--vk-white);
+	border-radius: var(--vk-radius);
+	box-shadow: var(--vk-shadow);
+	overflow: hidden;
+	text-align: center;
+	transition: transform var(--vk-transition);
+}
+
+.vk-winemaker-card:hover {
+	transform: translateY(-3px);
+}
+
+.vk-winemaker-card__image img {
+	width: 100%;
+	height: 200px;
+	object-fit: cover;
+}
+
+.vk-winemaker-card__content {
+	padding: 16px;
+}
+
+.vk-winemaker-card__title {
+	margin: 0 0 8px;
+}
+
+.vk-winemaker-card__title a {
+	color: var(--vk-text);
+	text-decoration: none;
+}
+
+.vk-winemaker-card__title a:hover {
+	color: var(--vk-primary);
+}
+
+.vk-winemaker-card__excerpt {
+	font-size: 14px;
+	color: var(--vk-text-light);
+	margin: 0 0 12px;
+}
+
+/* ========== Winemaker Single ========== */
+.vk-winemaker-single {
+	max-width: 900px;
+	margin: 0 auto;
+	background: var(--vk-white);
+	border-radius: var(--vk-radius);
+	box-shadow: var(--vk-shadow);
+	overflow: hidden;
+}
+
+.vk-winemaker-single__image img {
+	width: 100%;
+	max-height: 400px;
+	object-fit: cover;
+}
+
+.vk-winemaker-single__content {
+	padding: 30px;
+}
+
+.vk-winemaker-contacts {
+	margin-top: 20px;
+	padding: 15px;
+	background: var(--vk-bg);
+	border-radius: 4px;
+}
+
+.vk-winemaker-contacts h3 {
+	margin: 0 0 10px;
+}
+
+.vk-winemaker-contacts p {
+	margin: 5px 0;
+}
+
+/* ========== Map Container ========== */
+.vk-map-container {
+	border-radius: 8px;
+	overflow: hidden;
+	box-shadow: var(--vk-shadow);
+}
+
+/* ========== Pagination ========== */
+.vk-pagination {
+	display: flex;
+	justify-content: center;
+	gap: 5px;
+	margin-top: 30px;
+}
+
+.vk-pagination a,
+.vk-pagination span {
+	padding: 8px 12px;
+	border: 1px solid var(--vk-border);
+	border-radius: 4px;
+	text-decoration: none;
+	color: var(--vk-text);
+	transition: background var(--vk-transition);
+}
+
+.vk-pagination a:hover {
+	background: var(--vk-bg);
+}
+
+.vk-pagination .current {
+	background: var(--vk-primary);
+	color: var(--vk-white);
+	border-color: var(--vk-primary);
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 768px) {
+	.vk-wines-grid,
+	.vk-terroirs-grid,
+	.vk-winemakers-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.vk-wine-search__form {
+		flex-direction: column;
+	}
+
+	.vk-wine-single__meta-grid {
+		grid-template-columns: 1fr;
+	}
+}
